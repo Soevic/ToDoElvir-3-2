@@ -11,9 +11,25 @@ class TableViewController: UITableViewController {
     
     
     @IBAction func pushAddAction(_ sender: Any) {
-        AddItem(nameItem: "New Item")
-        tableView.reloadData()
+        let alertController = UIAlertController(title: "Новая запись", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "создай новую запись"
+        }
+        let alertAction1 = UIAlertAction(title: "Отменить", style: .default) { (alert) in
+            
+        }
         
+        let alertAction2 = UIAlertAction(title: "Создать", style: .cancel) { (alert) in
+            // Добавить новую запись
+            let newItem = alertController.textFields![0].text
+            AddItem(nameItem: newItem!)
+            self.tableView.reloadData()
+        }
+        
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 
