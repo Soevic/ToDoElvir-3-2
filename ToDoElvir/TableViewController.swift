@@ -10,6 +10,10 @@ import UIKit
 class TableViewController: UITableViewController {
     
     
+    @IBOutlet weak var pushRemoveAction: UIBarButtonItem!
+    
+    
+    
     @IBAction func pushAddAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Новая запись", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -91,6 +95,7 @@ class TableViewController: UITableViewController {
             removeItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
+            
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
