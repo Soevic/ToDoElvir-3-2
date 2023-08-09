@@ -9,9 +9,34 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    
-    @IBOutlet weak var pushRemoveAction: UIBarButtonItem!
-    
+    @IBAction func pushRemoveAction(_ sender: Any) {
+     let alertController = UIAlertController(title: "Удалить запись", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "удали запись"
+        }
+        let alertAction1 = UIAlertAction(title: "Отменить", style: .default) { (alert) in
+            
+        }
+        
+        let alertAction2 = UIAlertAction(title: "Удалить", style: .cancel) { (alert) in
+            // Удалить новую запись, если такая существует
+            let deleteItem = alertController.textFields![0].text 
+            var index = 0
+            
+//            for name in ToDoItems {
+//                if name == deleteItem  {
+                    removeItem(at: index)
+                    self.tableView.reloadData()
+                }
+            
+            //self.tableView.reloadData()
+        }
+        
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     
     @IBAction func pushAddAction(_ sender: Any) {
@@ -95,9 +120,9 @@ class TableViewController: UITableViewController {
             removeItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            
+
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

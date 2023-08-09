@@ -29,7 +29,7 @@ func AddItem(nameItem: String, isCompleted: Bool = false) {
     ToDoItems.append(["Name": nameItem,"isCompleted": false])
     }
 
-func removeItem(at index: Int){
+func removeItem(at index: Int) -> [String:Any]{
     ToDoItems.remove(at: index)
     
 }

@@ -40,16 +40,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Записная Книжка" id="HMQ-Lz-Vey">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="G4N-fN-Dmh"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="86C-I4-kdd">
+                            <connections>
+                                <action selector="pushRemoveAction:" destination="ehq-h2-2ac" id="fSb-fX-cpg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OOx-iL-Nri">
                             <connections>
                                 <action selector="pushAddAction:" destination="ehq-h2-2ac" id="PPv-zM-azI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="pushRemoveAction" destination="G4N-fN-Dmh" id="Mz2-6G-FIX"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvF-xe-qr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
