@@ -22,17 +22,18 @@ var ToDoItems: [[String:Any]] {
     }
 }
 
-    
-
 
 func AddItem(nameItem: String, isCompleted: Bool = false) {
+
     ToDoItems.append(["Name": nameItem,"isCompleted": false])
+
     }
 
-func removeItem(at index: Int) -> [String:Any]{
-    ToDoItems.remove(at: index)
+func removeItem(at index: Int) {
+    ToDoItems.remove(at: index )
+    }
     
-}
+
 
 func changeState(at item: Int) -> Bool {
     ToDoItems[item]["isCompleted"] = !(ToDoItems[item]["isCompleted"] as! Bool)

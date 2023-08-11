@@ -8,6 +8,19 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    
     
     @IBAction func pushRemoveAction(_ sender: Any) {
      let alertController = UIAlertController(title: "Удалить запись", message: nil, preferredStyle: .alert)
@@ -19,19 +32,14 @@ class TableViewController: UITableViewController {
         }
         
         let alertAction2 = UIAlertAction(title: "Удалить", style: .cancel) { (alert) in
-            // Удалить новую запись, если такая существует
-            let deleteItem = alertController.textFields![0].text 
-            var index = 0
+            // Удалить запись
+            var deleteItem = alertController.textFields![0].text //
+          
+           // ToDoItems.remove(at: Int(from: "")??,0 )
             
-//            for name in ToDoItems {
-//                if name == deleteItem  {
-                    removeItem(at: index)
-                    self.tableView.reloadData()
-                }
-            
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
         }
-        
+
         alertController.addAction(alertAction1)
         alertController.addAction(alertAction2)
         
@@ -62,15 +70,15 @@ class TableViewController: UITableViewController {
     }
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Uncomment the following line to preserve selection between presentations
+//        // self.clearsSelectionOnViewWillAppear = false
+//
+//        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//    }
 
     // MARK: - Table view data source
 
